@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { useRouter } from 'next/navigation';  // Correct import from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -17,10 +17,21 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = ['Products', 'Pricing', 'Blog', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+function Navbar() {
+
+  const pathname = usePathname()
+
+  const router = useRouter();
+
+
+  React.useEffect(() => {
+    console.log(pathname);
+  }, [pathname]);
+
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const router = useRouter();
+ 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -39,7 +50,11 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <main>
+  { 
+  
+  pathname !== "/about/aboutus"?
+  <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -47,7 +62,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -70,7 +85,7 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              {/* <MenuIcon /> */}
+               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -140,7 +155,10 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+  :null  
+  }
+    </main>
   );
 }
 
-export default ResponsiveAppBar;
+export default Navbar;
