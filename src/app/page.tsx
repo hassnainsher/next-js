@@ -12,7 +12,7 @@ export default function Home() {
     <main>
       <h1>sdfh {name}</h1>
       <button onClick={click}>hh</button>
-      <button onClick={()=>router.push("./about/aboutus/")}>goto about</button>
+      <button onClick={()=>router.push("./about/aboutus/")}>goto about b</button>
       <h1></h1>
     </main>
   );
