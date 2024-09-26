@@ -23,15 +23,16 @@ function Navbar() {
 
   const router = useRouter();
 
-
   React.useEffect(() => {
     console.log(pathname);
   }, [pathname]);
-
+//  hooks
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
- 
+   
+  // use state hooks
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
