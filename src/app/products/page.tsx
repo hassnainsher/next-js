@@ -1,9 +1,30 @@
-import React from 'react'
+"use client";
+import React, { useState,useEffect } from 'react';
 
 export default function Products() {
+  const [product,setProduct]=useState([])
+  useEffect(()=>{
+    const fetchData = async()=>{
+       let data = await fetch("https://dummyjson.com/products");
+    data = await data.json()
+    // console.log(data.products);
+    setProduct(data.products);
+  };
+    fetchData();
+   
+  },[])
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div
+    //  className='flex items-center justify-center h-screen'
+     >
         <h1>hello i am products</h1>
+        {
+          product.map((item)=>(
+            <main key={item.id}>
+              <h3>Product title: {item.title}</h3>
+            </main>
+          ))
+        }
     </div>
   )
 }

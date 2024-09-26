@@ -6,5 +6,6 @@ export default function middleware(req: NextRequest) {
     // }
 }
 export const config={
-    matcher:["/about/:path*","/blog"]
+    // matcher:["/about/:path*","/blog"]
+    matcher:["/hello"]
 }
