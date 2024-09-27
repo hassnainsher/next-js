@@ -18,13 +18,7 @@ export default function Products() {
     //  className='flex items-center justify-center h-screen'
      >
         <h1>hello i am products</h1>
-        {
-          product.map((item)=>(
-            <main key={item.id}>
-              <h3>Product title: {item.title}</h3>
-            </main>
-          ))
-        }
+        
     </div>
   )
 }

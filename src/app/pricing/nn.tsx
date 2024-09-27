@@ -1,0 +1,1 @@
+https://acme.com/resources/images/atom_ani.gif
