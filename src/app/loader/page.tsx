@@ -1,27 +1,30 @@
-
-
-export async function Hello(){
-    let data = await fetch("https://dummyjson.com/users");
-    data = await data.json();
-    console.log('====================================');
-    console.log(data);
-    console.log('====================================');
-    return data.users;
+import Image from "next/image";
+export async function UserData(){
+  let data = await fetch("https://dummyjson.com/users");
+  data = await data.json();
+  return data.users;
 }
-
-export default async function Page() {
-   let users = await Hello();
-  return (
-    <div>
-        <h1 className="font-bold">hello</h1>
-       {
-          users.map((item)=>(
-            <main key={item.id}>
-                <h1> <span className="text-red-600 font-bold">hello: </span>  {item.firstName}</h1>
-            </main>
-          ))
-        }
-
-    </div>
-  )
+export default async function Page(){
+  const users = await UserData();
+return(
+  <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 m-6">
+    {
+      users.map((item)=>(
+        <main key={item.id} >
+          <div>
+            <Image
+            src={item.image}
+            width={400}
+            height ={100}
+            alt="....."/>
+            <h1 className="text-center font-bold">{item.firstName}  {item.lastName} {item.maidenName}</h1>
+          <p>{item.discription}</p>
+          <p>{item.ip}  {item.address.city}</p>
+          </div>
+          
+        </main>
+      ))
+    }
+  </main>
+)
 }
