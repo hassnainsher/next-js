@@ -20,3 +20,12 @@ export default async function page(props) {
     
   )
 }
+
+// export async function generateStaticParams(){
+//   const getUserList: Promise<{id: number}[]> = getUsers();
+//   const users = await getUserList;
+  
+//   return users.map((user: {id: number}) => ({
+//     userid: user.id.toString()
+//   }));
+// }

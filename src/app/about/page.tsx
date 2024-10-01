@@ -1,6 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 export default function About(){
+    redirect(`/`)
     const router =useRouter();
     return(
         <main className="flex justify-center items-center h-screen">
