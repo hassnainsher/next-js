@@ -7,21 +7,21 @@ const nextConfig = {
             "dummyjson.com",
 
         ]
-    },
-    redirects:async()=>{
-        return[
-            {
-                source:'/products',
-                destination:'/',
-                permanent:false,
-            },
-            // {
-            //     source: '/users/:userid',
-            //     destination: '/',
-            //     permanent:false,
-            // }
-        ]
     }
+    // redirects:async()=>{
+    //     return[
+    //         {
+    //             source:'/products',
+    //             destination:'/',
+    //             permanent:false,
+    //         },
+    //         // {
+    //         //     source: '/users/:userid',
+    //         //     destination: '/',
+    //         //     permanent:false,
+    //         // }
+    //     ]
+    // }
     // output:"export"
     // afer this line give the cammond in terminal 
     // nmp run build
